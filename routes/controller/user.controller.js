@@ -21,6 +21,7 @@ router.put('/updateUser', auth.required, function(req, res, next){
 
 router.post('/login', function(req, res, next){
   if(!req.body.user.email){
+    console.log(req.body.user.email)
     return res.status(422).json({errors: {email: "can't be blank"}});
   }
 
@@ -37,6 +38,9 @@ router.post('/login', function(req, res, next){
     } else {
       return res.status(422).json(info);
     }
+
+    
+
   })(req, res, next);
 });
 
